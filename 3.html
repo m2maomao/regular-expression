@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let hd="houdunren.com"
+    let a = "u"
+    // console.log(/u/.test(hd));
+    // 字面量
+    console.log(/a/.test(hd)) //无法识别字面量，会找"a"
+    console.log(eval(`/${a}/`).test(hd)); // 可以识别，会找"u"
+  </script>
+</body>
+</html>

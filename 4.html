@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="content">houdunre.com</div>
+  <script>
+    // let hd = "houdunren.com";
+    // let a = "u"
+    // let reg = new RegExp(a, "g"); //字符串中检测是否有“u”
+    // console.log(reg.test(hd));
+
+    let content = prompt("请输入要检测的内容，支持正则")
+    let reg = new RegExp(content, 'g');
+    let div = document.querySelector('div');
+    div.innerHTML.replace(reg, search => {
+      
+    })
+    // w:字母，d:数字,不加g则只匹配一项
+    // console.log('abc'.replace(/\w/g, '@'));
+
+    // console.log(
+    //   'abc'.replace(/\w/g, search => {
+    //     return "**" + search + "**\n" 
+    //   })
+    // );
+  </script>
+</body>
+</html>
