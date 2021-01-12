@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // \w 字母、数字、下划线
+    let hd = "houdunren2010_@@";
+    console.log(hd.match(/\w+/)); // ["houdunren2010_", index: 0, input: "houdunren2010_@@", groups: undefined]
+
+    // 匹配邮箱
+    let email = '281111123@qq.com';
+    console.log(email.match(/^\w+@\w+\.\w+$/));
+
+    // 匹配用户名
+    let username = prompt("请输入用户名");
+    console.log(/^[a-z]\w{4,9}$/.test(username));
+  </script>
+</body>
+</html>

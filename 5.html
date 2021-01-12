@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let hd = "houdunren";
+    // 或者，左右两侧为整体表达式，匹配"aaau"或者"@"
+    console.log(/aaau|@/.test(hd)); 
+    // 匹配“上海”/"北京"电话号
+    let tel = "020-9999999";
+    // 括号为组，“-”为特殊字符，需要转义，“\d代表数字”,“{}”中数字代表数字的位数
+    console.log(/(010|020)\-\d{7,8}/.test(tel));
+  </script>
+</body>
+</html>

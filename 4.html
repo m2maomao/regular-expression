@@ -16,8 +16,8 @@
     let content = prompt("请输入要检测的内容，支持正则")
     let reg = new RegExp(content, 'g');
     let div = document.querySelector('div');
-    div.innerHTML.replace(reg, search => {
-      
+    div.innerHTML = div.innerHTML.replace(reg, search => {
+      return `<span style="color:red">${search}</span>`
     })
     // w:字母，d:数字,不加g则只匹配一项
     // console.log('abc'.replace(/\w/g, '@'));

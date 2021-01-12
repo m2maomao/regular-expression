@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 元字符
+    let hd = "houdunren 2010";
+    console.log(hd.match(/\d/)); // ["2", index: 10, input: "houdunren 2010", groups: undefined]
+    console.log(hd.match(/\d\d\d\d/)); // ["2010", index: 10, input: "houdunren 2010", groups: undefined] 
+    console.log(hd.match(/\d+/)); // ["2010", index: 10, input: "houdunren 2010", groups: undefined] 
+    console.log(hd.match(/\d/g)); // ["2", "0", "1", "0"]
+    console.log(hd.match(/\d+/g)); // ["2010"]
+
+    let hd2 = `张三:010-12345678; 李四:020-1234567`;
+    console.log(hd2.match(/\d{3}-\d{7,8}/g)); // ["010-12345678", "020-1234567"]
+
+    // "d"数字，"D":除了数字
+    let hd3 = "houdunren 2010";
+    console.log(hd3.match(/\D/)); // ["h", index: 0, input: "houdunren 2010", groups: undefined]
+    console.log(hd3.match(/\D+/)); // ["houdunren ", index: 0, input: "houdunren 2010", groups: undefined]
+
+    let hd4 = `    张三:010-12345678; 李四:020-1234567`;
+    // 原子表中的会被保留
+    console.log(hd4.match(/[:;-\d]/)); // [":", index: 2, input: "张三:010-12345678; 李四:020-1234567", groups: undefined]
+    console.log(hd4.match(/[:;-\d]/g)); // [":", "0", "1", "0", "1", "2", "3", "4", "5", "6", "7", "8", ";", ":", "0", "2", "0", "1", "2", "3", "4", "5", "6", "7"]
+    // 原子表中加"^"表示“取反” （字符串方法）
+    console.log(hd4.match(/[^:;-\d]/g)); // [" ", " ", " ", " ", "张", "三", " ", "李", "四"]
+    console.log(hd4.match(/[^:;-\s\d]+/g)); // ["张三", "李四"]
+    // \s 空白 （换行，空格，分页符等） \S 除了空白
+    console.log(/\s/.test('hd\n'));
+  </script>
+</body>
+</html>
