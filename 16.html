@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // lastIndex 正则表达式开始搜索的位置
+    let hd = "houdunren";
+    let reg = /\w/g; // 全局的时候会记录lastIndex
+    console.log(reg.lastIndex);
+    console.log(reg.exec(hd));
+    console.log(reg.lastIndex);
+    console.log(reg.exec(hd));
+    console.log('----------------------------------');
+    while ((res = reg.exec(hd))) {
+      console.log(res);
+    }
+  </script>
+</body>
+</html>

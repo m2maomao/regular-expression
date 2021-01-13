@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 字符属性 \p; [L]代表字母
+    let hd = "houdunren2010.不断发布教程，加油!";
+    console.log(hd.match(/\p{L}/)); // null
+    // 使用字符属性，必须加“u”:unicode
+    console.log(hd.match(/\p{L}/gu)); // ["h", "o", "u", "d", "u", "n", "r", "e", "n"]
+    //匹配标点符号
+    console.log(hd.match(/\p{P}/gu)); // [".", "，", "!"]
+    // sc 语言系统
+    console.log(hd.match(/\p{sc=Han}/gu)); // ["不", "断", "发", "布", "教", "程", "加", "油"]
+  </script>
+</body>
+</html>

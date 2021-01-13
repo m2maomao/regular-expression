@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let hd = `
+      #1 js,200元 #
+      #2 php,300元 #
+      #9 houudnren.com # 后盾人
+      #3 node.js,180元 #
+    `
+    // "*"一个或多个; m逐行处理
+    console.log(hd.match(/^\s*#\d+\s+.+\s+#$/g)); // null
+    console.log(hd.match(/^\s*#\d+\s+.+\s+#$/gm)); // ["↵      #1 js,200元 #", "      #2 php, 300元 #", "      #3 node.js, 180元 #"]
+    let lessions = hd.match(/^\s*#\d+\s+.+\s+#$/gm).map(v => {
+      v = v.replace(/\s*#\d+\s*/, "").replace(/\s+#/,"");
+      [name, price] = v.split(",");
+      return {name, price}
+    })
+    console.log(lessions);
+    console.log(JSON.stringify(lessions, null, 2));
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // \d 数字 \w 数字、字母、下划线 . 除换行符外的所有字符
+    let hd = "houdunren.com-da@@"
+    console.log(hd.match(/.+/));
+    // 单纯匹配"."需要转义 "\."
+    let url = "https://www.houdunren.com";
+    console.log(url.match(/https?:\/\/\w+\.\w+\.\w+/));
+    // s 单行匹配
+    let str = `
+      www.baidu.com
+      www.google.com
+    `
+    console.log(str.match(/.+/)); // ["      www.baidu.com", index: 1, input: "↵      www.baidu.com↵      www.google.com↵    ", groups: undefined]
+    console.log(str.match(/.+/s));// ["↵      www.baidu.com↵      www.google.com↵    ", index: 0, input: "↵      www.baidu.com↵      www.google.com↵    ", groups: undefined]
+    console.log(str.match(/.+/s)[0]); // www.baidu.com www.google.com
+
+    // 空格 "\s"
+    let tel = "010 - 99999999";
+    console.log(tel.match(/\d{3}-\d{8}/)); // null
+    console.log(tel.match(/\d{3} - \d{8}/)); // ["010 - 99999999", index: 0, input: "010 - 99999999", groups: undefined]
+    console.log(tel.match(/\d{3}\s-\s\d{8}/)); // ["010 - 99999999", index: 0, input: "010 - 99999999", groups: undefined]
+
+  </script>
+</body>
+</html>

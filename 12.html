@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let hd = `
+      <span>
+        michael @@@@@
+        hdcms  
+      </span>
+    `;
+    let n = "ab";
+    // 原子表 [];有一个字母匹配，则匹配
+    console.log(n.match(/[$%^%^&*^&*^b]/)); // ["b", index: 1, input: "ab", groups: undefined]
+
+    // [\s\S] 空格，除空格外 => 即代表所有字符； [\d\D] 同样，\d代表数字，\D代表非数字，则将匹配所有
+    console.log(hd.match(/<span>[\s\S]+<\/span>/)); // ["<span>↵        michael @@@@@↵        hdcms  ↵      </span>", index: 7, input: "↵      <span>↵        michael @@@@@↵        hdcms  ↵      </span>↵    ", groups: undefined]
+    console.log(hd.match(/<span>[\d\D]+<\/span>/));
+  </script>
+</body>
+</html>
