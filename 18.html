@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let hd = "houdunren";
+    console.log(hd.match(/ue/)); // null
+    // [] 原子表中的将分开匹配
+    console.log(hd.match(/[ue]/)); // ["u", index: 2, input: "houdunren", groups: undefined]
+    console.log(hd.match(/[ue]/g)); // ["u", "u", "e"]
+    // 当分割位"-"或者"/"都可以正常匹配
+    let tel = '2022-02-23';
+    let tel2 = '2022/02-03';
+    let reg = /\d{4}[-\/]\d{2}[-\/]\d{2}/
+    // 原子组使用，后面的分隔符必须与前面的分隔符一致，否则就匹配不到
+    // () \1 匹配前面原子组
+    let reg2 = /\d{4}([-\/])\d{2}\1\d{2}/
+    console.log(tel.match(reg)); // ["2022-02-23", index: 0, input: "2022-02-23", groups: undefined]
+    console.log(tel2.match(reg)); // ["2022/02-03", index: 0, input: "2022/02-03", groups: undefined]
+    console.log(tel2.match(reg2)); // null
+  </script>
+</body>
+</html>

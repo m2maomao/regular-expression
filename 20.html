@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let hd = "houdunren.com";
+    console.log(hd.match(/[ue]/g)); // ["u", "u", "e"]
+    // 排除，在原子表中添加“^”,除了“u”,"e"将都被打印
+    console.log(hd.match(/[^ue]/g)); // ["h", "o", "d", "n", "r", "n", ".", "c", "o", "m"]
+
+    // 用排除法找出中文字符
+    let hd2 = `张三:010-99999999,李四:020-11111111`;
+    console.log(hd2.match(/[^:\-,\d+]+/g)); // ["张三", "李四"]
+    
+    console.log(hd2.match(/\p{sc=Han}+/gu)); // ["张三", "李四"]
+  </script>
+</body>
+</html>

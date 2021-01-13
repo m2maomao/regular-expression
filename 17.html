@@ -8,6 +8,32 @@
 <body>
   <script>
     
+    let hd = "houdunren";
+    let reg = /u/g;
+    console.log(reg.exec(hd)); // ["u", index: 2, input: "houdunren", groups: undefined]
+    console.log(reg.lastIndex); // 3
+    console.log(reg.exec(hd)); // ["u", index: 4, input: "houdunren", groups: undefined]
+    console.log(reg.lastIndex); // 5
+    console.log(reg.exec(hd)); // null
+    console.log(reg.lastIndex); // 0
+    console.log('--------------------------------');
+    // y模式,连续匹配,检索效率高
+    let hd2 = "udunren";
+    let reg2 = /u/y;
+    console.log(reg2.exec(hd2)); // ["u", index: 2, input: "houdunren", groups: undefined]
+    console.log(reg2.lastIndex); // 1
+    console.log(reg2.exec(hd2)); // null
+    console.log(reg2.lastIndex); // 0
+    console.log('---------------------------------');
+
+    let hd3 = `湿哒哒所大大所大大多:111111111,999999999,888888888打定金奥康达，打算大受打击 houdunren.com`;
+    let reg3 = /(\d+),?/y;
+    // 手动修改，将从第11位开始查找
+    reg3.lastIndex = 11;
+    let qq = [];
+    while((res = reg3.exec(hd3))) qq.push(res[1])
+    console.log(qq); // ["111111111", "999999999", "888888888"]
+    
   </script>
 </body>
 </html>

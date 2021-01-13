@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let hd = `
+      houdunren
+      hdcms
+    `;
+    // "s" 忽略换行符
+    console.log(hd.match(/.+/gs)); // ["↵      houdunren↵      hdcms↵    "]
+    // 忽略所有内容 [\s\S] [\d\D]
+    console.log(hd.match(/[\s\S]+/)[0]); 
+    // 
+    // houdunren
+    // hdcms
+    
+  </script>
+</body>
+</html>

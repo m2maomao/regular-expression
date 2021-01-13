@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" name="username">
+  <script>
+    let hd = "2010";
+    console.log(hd.match(/\d/g)); // ["2", "0", "1", "0"]
+    // 加上“+”号，则进行贪婪匹配
+    console.log(hd.match(/\d+/g)); // ["2010"]
+    let hd2 = "houdunren";
+    console.log(hd2.match(/[a-z]+/)); // ["houdunren", index: 0, input: "houdunren", groups: undefined]
+    console.log(hd2.match(/[a-z]/g)); // ["h", "o", "u", "d", "u", "n", "r", "e", "n"]
+    console.log(hd2.match(/[a-z]+/g)); // ["houdunren"]
+
+    let ipt = document.querySelector(`[name="username"]`);
+    ipt.addEventListener('keyup', function() {
+      console.log(this.value.match(/^[a-z]\w{3,6}$/i));
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let hd = "(houdunren).+";
+    // 不会匹配括号
+    console.log(hd.match(/()/gi)); // ["", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+    // 将括号放在原子组则可以匹配
+    console.log(hd.match(/[()]/gi)); // ["(", ")"]
+  </script>
+</body>
+</html>
