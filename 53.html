@@ -6,8 +6,20 @@
   <title>Document</title>
 </head>
 <body>
+  <main>
+    <a href="https://www.houdunren.com/1.jpg">1.jpg</a>
+    <a href="https://oss.houdunren.com/1.jpg">2.jpg</a>
+    <a href="https://cdn.houdunren.com/1.jpg">3.jpg</a>
+    <a href="https://houdunren.com/1.jpg">4.jpg</a>
+  </main>
   <script>
-    
+    const main = document.querySelector('main');
+    // 非oss网址，前部替换为oss+
+    const reg = /https:\/\/([a-z]+)?(?<!oss)\..+?(?=\/)/gi;
+    console.log(main.innerHTML.match(reg)); // ["https://www.houdunren.com", "https://cdn.houdunren.com", "https://houdunren.com"]
+    main.innerHTML = main.innerHTML.replace(reg, v => {
+      return "https://oss.houdunren.com"
+    })
   </script>
 </body>
 </html>

@@ -7,7 +7,11 @@
 </head>
 <body>
   <script>
-    
+    // ?= 后面是什么时匹配； ?! 后面不是什么的时候才匹配
+    let hd = "houdunren2010hdcms";
+    // 此时$符表示以字母结尾；(?!\d+)表示后面不是数字
+    let reg = /[a-z]+(?!\d+)$/ig;
+    console.log(hd.match(reg));
   </script>
 </body>
 </html>

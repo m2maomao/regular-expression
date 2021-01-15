@@ -7,7 +7,18 @@
 </head>
 <body>
   <script>
-    
+    let users = `
+      michael电话: 12345678901
+      毛毛电话: 18523326788
+    `;
+    let reg = /(?<=\d{7})\d{4}/gi;
+    console.log(users.match(reg)); // ["8901", "6788"]
+    users = users.replace(reg, v => {
+      return '*'.repeat(4)
+    })
+    console.log(users);
+    // michael电话: 1234567****
+    // 毛毛电话: 1852332****
   </script>
 </body>
 </html>

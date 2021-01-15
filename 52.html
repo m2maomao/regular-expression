@@ -7,7 +7,10 @@
 </head>
 <body>
   <script>
-    
+    let hd = "hdcms99houdunren";
+    // (括号中表示条件) ?<! 前面不是
+    let reg = /(?<!\d+)[a-z]+/i;
+    console.log(hd.match(reg));
   </script>
 </body>
 </html>

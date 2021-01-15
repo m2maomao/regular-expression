@@ -6,8 +6,21 @@
   <title>Document</title>
 </head>
 <body>
+  <main>
+    <a href="https://baidu.com">百度</a>
+    <a href="https://yahoo.com">雅虎</a>
+  </main>
   <script>
-    
+    let hd = "houdunren789hdcms666"
+    const reg = /(?<=houdunren)\d+/ig;
+    console.log(hd.match(reg)); // ["789"]
+    console.log(hd.match(/houdunren(?=789)/ig)); // ["houdunren"]
+
+    const main = document.querySelector('main');
+    // (前匹配符，(组)) .+为匹配网址 (后匹配符)
+    let reg2 = /(?<=href=(['"'])).+(?=\1)/gi;
+    console.log(main.innerHTML.match(reg2)); // ["https://baidu.com", "https://yahoo.com"]
+    main.innerHTML = main.innerHTML.replace(reg2, 'http://www.40design.com')
   </script>
 </body>
 </html>

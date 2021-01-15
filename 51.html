@@ -6,8 +6,17 @@
   <title>Document</title>
 </head>
 <body>
+  <main>
+    <input type="text" name="username">
+  </main>
   <script>
-    
+    // 注册时，禁止使用“毛”字符
+    const input = document.querySelector('[name="username"]');
+    // ?!后面不能是
+    input.addEventListener('keyup', function() {
+      const reg = /^(?!.*毛.*)[a-z]{5,6}$/i
+      console.log(this.value.match(reg));
+    })
   </script>
 </body>
 </html>

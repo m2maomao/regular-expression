@@ -7,7 +7,21 @@
 </head>
 <body>
   <script>
-    
+    let lessons = `
+      js,200元,300次
+      php,300.00元,100次
+      node.js,180元,260次
+    `;
+    let reg = /(\d+)(.00)?(?=元)/ig;
+    console.log(lessons.match(reg)); // ["200", "300.00", "180"]
+    lessons = lessons.replace(reg, (v, ...args) => {
+      args[1] = args[1] || '.00';
+      return args.splice(0,2).join("");
+    })
+    console.log(lessons);
+    // js,200.00元,300次
+    // php,300.00元,100次
+    // node.js,180.00元,260次
   </script>
 </body>
 </html>

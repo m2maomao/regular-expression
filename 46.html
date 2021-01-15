@@ -6,8 +6,22 @@
   <title>Document</title>
 </head>
 <body>
+  <main>
+    后盾人不断分享视频教程，学习后盾人教程提升编程能力。
+  </main>
   <script>
-    
+    // 断言，正则表达式中的条件语句
+    let main = document.querySelector('body main');
+    // ?= 后面跟字符，表示匹配多个前面的时候，后面必须匹配
+    let reg = /后盾人(?=教程)/g;
+    main.innerHTML = main.innerHTML.replace(reg, `
+      <a href="http://www.40design.com">$&</a>
+    `);
+    // <main>
+    //   后盾人不断分享视频教程，学习
+    //     <a href="http://www.40design.com">后盾人</a>
+    //   教程提升编程能力。
+    // </main>
   </script>
 </body>
 </html>
