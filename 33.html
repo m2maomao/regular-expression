@@ -6,8 +6,18 @@
   <title>Document</title>
 </head>
 <body>
+  <main>
+    <span>houdunwang</span>
+    <span>michael jackson</span>
+    <span>40design.com</span>
+  </main>
   <script>
-    
+    //span转为h4，描红，文字前加前缀
+    let main = document.querySelector('main');
+    let reg = /<span>([\s\S]+?)<\/span>/gi
+    main.innerHTML = main.innerHTML.replace(reg, (v, p1) => {
+      return `<h4 style="color:red">mm-${p1}</h4>`;
+    })
   </script>
 </body>
 </html>

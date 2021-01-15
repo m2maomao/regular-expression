@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 将全部<h*>标签换位h4
+    let hd = `
+      <h1>标题</h1>
+      <span>michael</span>
+      <h2>二级标题</h2>
+    `;
+    const reg = /<(h[1-6])>(.*?)<\/\1>/gi;
+    console.log(hd.match(reg)); // ["<h1>标题</h1>", "<h2>二级标题</h2>"]
+    console.log(hd.replace(reg, "<h4>$2</h4>"));
+    // <h4>标题</h4>
+    // <span>michael</span>
+    // <h4>二级标题</h4>
+    // <con> 为自定义的别名，当括号非常多时，可以使用别名，方便取值
+    const reg2 = /<(h[1-6])>(?<con>.*?)<\/\1>/gi;
+    console.log(hd.replace(reg2, "<h4>$<con></h4>"));
+    // <h4>标题</h4>
+    // <span>michael</span>
+    // <h4>二级标题</h4>
+  </script>
+</body>
+</html>

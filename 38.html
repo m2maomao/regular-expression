@@ -7,7 +7,22 @@
 </head>
 <body>
   <script>
-    
+    let url = `
+      http://hdcms.com.cn
+      https://www.baidu.com
+      https://google.com
+    `;
+    // "g"全局匹配不会返回细节，如果不用g，则匹配一个，会返回细节
+    let reg = /https?:\/\/(\w+\.)?(\w+\.)+(com.cn|com)/ig;
+    let urls = [];
+    for (const iterator of url.matchAll(reg)) {
+      urls.push(iterator[0])
+    }
+    console.log(urls);
+    let time = "2020-12-20";
+    let time2 = "2020/12/20";
+    console.log(time.split(/[-\/]/));
+    console.log(time2.split(/[-\/]/));
   </script>
 </body>
 </html>

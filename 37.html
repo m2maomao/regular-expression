@@ -7,7 +7,21 @@
 </head>
 <body>
   <script>
-    
+    // match exec matchAll replace
+    let hd = "houdunren.com";
+    // 字符串方法 search
+    console.log(hd.search(/u/));
+    // 字符串方法 match
+    console.log(hd.match(/u/ig));
+
+    let url = `
+      http://hdcms.com.cn
+      https://www.baidu.com
+      https://google.com
+    `;
+    // "g"全局匹配不会返回细节，如果不用g，则匹配一个，会返回细节
+    let reg = /https?:\/\/(\w+\.)?(\w+\.)+(com.cn|com)/ig;
+    console.log(url.match(reg));
   </script>
 </body>
 </html>

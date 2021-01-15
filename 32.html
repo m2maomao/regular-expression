@@ -7,7 +7,20 @@
 </head>
 <body>
   <script>
-    
+    let hd = "hddddddd";
+    // "+"代表1~多，贪婪; 
+    console.log(hd.match(/hd+/g)); // ["hddddddd"]
+    // 在后跟"?"将向1的方向倾斜
+    console.log(hd.match(/hd+?/g)); // ["hd"]
+    // "*"指0到多个
+    console.log(hd.match(/hd*/g)); // ["hddddddd"]
+    // 在后跟"?"将向少的一方倾斜
+    console.log(hd.match(/hd*?/g)); // ["h"]
+    // {2,100} 贪婪匹配，尽量匹配多的一方
+    console.log(hd.match(/hd{2,100}/g)); // ["hddddddd"]
+    console.log(hd.match(/hd{2,100}?/g)); // ["hdd"]
+    // "?"范围为0~1
+    console.log(hd.match(/hd??/g)); // ["h"]
   </script>
 </body>
 </html>

@@ -6,8 +6,19 @@
   <title>Document</title>
 </head>
 <body>
+  <h1>houdunren.com</h1>
+  <h2>hdcms.com</h2>
+  <h1>后盾</h1>
   <script>
-    
+    let reg = /<(h[1-6])>([\s\S]+?)<\/\1>/gi;
+    const body = document.querySelector('body');
+    const hd = body.innerHTML.matchAll(reg);
+    let contents = [];
+    for (const iterator of hd) {
+      contents.push(iterator[2])
+    }
+    console.table(contents); // ["houdunren.com", "hdcms.com", "后盾"]
+    console.log(body.innerHTML.match(reg)); // ["<h1>houdunren.com</h1>", "<h2>hdcms.com</h2>", "<h1>后盾</h1>"]
   </script>
 </body>
 </html>

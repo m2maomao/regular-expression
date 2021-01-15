@@ -6,8 +6,20 @@
   <title>Document</title>
 </head>
 <body>
+  <input type="text" name="password">
   <script>
-    
+    let input = document.querySelector(`[name="password"]`);
+    input.addEventListener('keyup', (e) => {
+      const value = e.target.value;
+      // 必须包含大写字母，必须包含数字
+      let regs = [
+        /^[a-z0-9]{5,10}$/i,
+        /[A-Z]/,
+        /[0-9]/
+      ];
+      let state = regs.every(e => e.test(value));
+      console.log(state);
+    })
   </script>
 </body>
 </html>

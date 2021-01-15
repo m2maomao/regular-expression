@@ -7,7 +7,17 @@
 </head>
 <body>
   <script>
-    
+    let hd = "hdddddd123dd";
+    // "+"贪婪匹配，会继续匹配所有的d字符
+    console.log(hd.match(/hd+/g)); // ["hdddddd"]
+    // "*"代表0到多个
+    let hd2 = "ha";
+    console.log(hd2.match(/hd*/g)); // ["h"]
+    // "{}"限定数量
+    console.log(hd.match(/hd{3}/g)); // ["hddd"]
+    // "?"0个或1个
+    console.log(hd.match(/hd?/)); // ["hd", index: 0, input: "hdddddd123dd", groups: undefined]
+    console.log(hd2.match(/hd?/)); // ["h", index: 0, input: "ha", groups: undefined]
   </script>
 </body>
 </html>

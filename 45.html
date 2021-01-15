@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    后盾人不断发布视频教程，网址时www.houdunren.com,后盾人，后盾人；
+  </main>
+  <script>
+    // exec match 当为单个匹配时，正则方法exec与字符串方法match基本相同
+    let reg = /后盾人/g;
+    const main = document.querySelector("body main");
+    console.log(main.innerHTML.match(reg));
+    // console.log(reg.exec(main.innerHTML));
+    // 当"/g"全局匹配后,字符串方法match会丢失细节，而exec不会，exec会有lastIndex，我们可以通过循环来获取
+    let count = 0;
+    while((res = reg.exec(main.innerHTML))) {
+      count++;
+    }
+    console.log(count); // 3
+  </script>
+</body>
+</html>

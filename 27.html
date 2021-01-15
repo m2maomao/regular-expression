@@ -7,7 +7,26 @@
 </head>
 <body>
   <script>
-    
+    let hd = `
+      https://www.houdunren.com
+    `;
+    // 0:整个内容，1括号，2括号
+    // "?:" 忽略，不保留,不记录组编号
+    let reg = /https:\/\/(\w+\.\w+\.(?:com|org|cn))/i;
+    console.log(hd.match(reg));
+
+    let hd2 = `
+      https://www.baidu.com
+      http://houdunren.com
+      https://cms.cn
+    `
+    // 字符后的“?”代表前面可有可无
+    let reg2 = /https?:\/\/((?:\w+\.)?\w+\.(?:com|org|cn))/ig;
+    let urls = [];
+    while((res = reg2.exec(hd2))) {
+      urls.push(res[1])
+    }
+    console.log(urls); // ["www.baidu.com", "houdunren.com", "cms.cn"]
   </script>
 </body>
 </html>

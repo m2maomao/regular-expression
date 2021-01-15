@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" name="email">
+  <script>
+    // match matchAll search replace splice split 字符串方法
+    const mail = document.querySelector(`[name="email"]`);
+    mail.addEventListener('keyup', (e) => {
+      let value = e.target.value;
+      // console.log(value.match(/\w+@\w+/))
+      // 正则方法 test
+      let flag =(/^[\w-]+@(\w+\.)+(com|cn)$/i).test(value);
+      console.log(flag);
+    })
+  </script>
+</body>
+</html>

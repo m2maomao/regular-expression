@@ -7,7 +7,18 @@
 </head>
 <body>
   <script>
-    
+    let tel = "2020/12/20";
+    console.log(tel.replace(/\//g,"-"));
+    let hd = "(010)99999999 (0476)4225311";
+    let reg = /\((\d{3,4})\)(\d{7,8})/g; // 2020-12-20 
+    console.log(hd.match(reg)); // ["(010)99999999", "(0476)4225311"]
+    // $跟数字，取出括号中的内容
+    console.log(hd.replace(reg, `$1-$2`)); // 010-99999999 0476-4225311
+    // $` 取出匹配左侧的内容，$'取出匹配右侧的内容,$&取出匹配内容
+    let str = "%michael=";
+    console.log(str.replace(/michael/, "$`")); // %%=
+    console.log(str.replace(/michael/,"$&")); // %michael=
+    console.log(str.replace(/michael/,"$'$'$&$'$'")); // %==michael===
   </script>
 </body>
 </html>

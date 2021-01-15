@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    在线教育大家爱看京东卡京东卡加大肯德基爱丽丝，打架看来大家。
+  </main>
+  <script>
+    // 给“教育”加链接
+    const main = document.querySelector("body main");
+    main.innerHTML = main.innerHTML.replace(
+      /教育/, `<a href="http://www.baidu.com">$&</a>`
+    )
+  </script>
+</body>
+</html>

@@ -6,8 +6,29 @@
   <title>Document</title>
 </head>
 <body>
-  <script>
-    
+  <h1>houdunren.com</h1>
+  <h2>hdcms.com</h2>
+  <h1>后盾人</h1>
+  <script>   
+    // let hd = "houdunren";
+    // let reg = /u/ig;
+    // let result = [];
+    // while ((res = reg.exec(hd))) {
+    //   result.push(res)
+    // }
+    // console.log(result);
+
+    function search(string, reg) {
+      let result = [];
+      while ((res = reg.exec(string))) {
+        result.push(res)
+      } 
+      console.log(result);
+    }
+    let string = document.body.innerHTML
+    let reg = /<(h[1-6])[\s\S]+?<\/\1>/ig
+    let matchs = search(string, reg)
+    console.log(matchs);
   </script>
 </body>
 </html>
